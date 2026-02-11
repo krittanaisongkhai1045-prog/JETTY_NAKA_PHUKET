@@ -89,31 +89,38 @@
             width: 100%; aspect-ratio: 16/9; display: block;
         }
         
-        /* Image Gallery */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem; margin: 3rem 0;
+        /* Image Gallery - Single Image */
+        .single-image-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
         }
-        .gallery-item {
-            border-radius: 15px; overflow: hidden;
-            aspect-ratio: 4/3; background: rgba(26, 26, 26, 0.5);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            transition: all 0.3s ease; cursor: pointer;
-        }
-        .gallery-item:hover {
+        .single-image-container:hover {
             transform: translateY(-5px);
-            border-color: var(--accent-yellow);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4);
         }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        .gallery-placeholder {
-            width: 100%; height: 100%; display: flex;
-            flex-direction: column; align-items: center; justify-content: center;
+        .single-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 16/10;
             background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(10, 10, 10, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .gallery-placeholder svg { width: 60px; height: 60px; margin-bottom: 1rem; opacity: 0.4; }
-        .gallery-placeholder p { opacity: 0.6; font-size: 0.9rem; }
+        .image-placeholder svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+        }
         
         /* Map */
         .map-container {
@@ -178,7 +185,6 @@
             .title-section h1 { font-size: 2rem; }
             .nav-tabs { flex-direction: column; top: 130px; }
             .container { padding-top: 280px; }
-            .image-gallery { grid-template-columns: 1fr; }
             .map-container { height: 300px; }
         }
     </style>
@@ -209,16 +215,11 @@
             </div>
 
             <div class="video-container">
-                <!-- แบบ YouTube: ลบ comment และแทนที่ YOUR_VIDEO_ID -->
-                <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+                <!-- แบบ YouTube: <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+                <!-- แบบไฟล์ .mp4: <video controls autoplay muted loop><source src="video.mp4" type="video/mp4"></video> -->
                 
-                <!-- แบบไฟล์ .mp4: ลบ comment และแทนที่ชื่อไฟล์ -->
-                <!-- <video controls autoplay muted loop><source src="jetty-video.mp4" type="video/mp4"></video> -->
-                
-                <!-- Placeholder: ลบออกเมื่อเพิ่มวิดีโอ -->
-                <div class="gallery-placeholder" style="aspect-ratio: 16/9;">
+                <div class="image-placeholder">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    <p style="font-size: 1.2rem; margin-top: 1rem;">Video Presentation</p>
                 </div>
             </div>
 
@@ -258,35 +259,13 @@
                     <p>KMIT Construction is a leading construction company specializing in comprehensive building and infrastructure projects. We deliver excellence through innovative solutions and professional execution.</p>
                 </div>
 
-                <!-- KMIT Company Images -->
-                <div class="company-section">
-                    <h2>Our Projects</h2>
-                </div>
-                <div class="image-gallery">
-                    <!-- แทนที่ด้วยรูปของ KMIT: <img src="kmit-project1.jpg" alt="KMIT Project 1"> -->
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <p>KMIT Project 1</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <p>KMIT Project 2</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <p>KMIT Project 3</p>
-                        </div>
+                <!-- KMIT Company Image -->
+                <div class="single-image-container">
+                    <!-- ใส่รูป KMIT: <img src="kmit-image.jpg" alt="KMIT Construction"> -->
+                    <div class="image-placeholder">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                        </svg>
                     </div>
                 </div>
 
@@ -336,35 +315,13 @@
                     <p>Currently managed by Mr. Jirawat Kuramakanok, Thanawat Engineering Phuket is trusted by government agencies, local authorities, and private clients nationwide, and remains committed to providing reliable and sustainable marine engineering solutions.</p>
                 </div>
 
-                <!-- Thanawat Company Images -->
-                <div class="company-section">
-                    <h2>Our Works</h2>
-                </div>
-                <div class="image-gallery">
-                    <!-- แทนที่ด้วยรูปของ Thanawat: <img src="thanawat-project1.jpg" alt="Thanawat Project 1"> -->
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <p>Thanawat Project 1</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <p>Thanawat Project 2</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">
-                            <svg fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <p>Thanawat Project 3</p>
-                        </div>
+                <!-- Thanawat Company Image -->
+                <div class="single-image-container">
+                    <!-- ใส่รูป Thanawat: <img src="thanawat-image.jpg" alt="Thanawat Engineering"> -->
+                    <div class="image-placeholder">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                        </svg>
                     </div>
                 </div>
 
