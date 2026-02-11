@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KMIT Construction - Marine Engineering Excellence</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -13,390 +11,189 @@
             --secondary-black: #1a1a1a;
             --accent-yellow: #ffd700;
             --bright-yellow: #ffed4e;
-            --dark-yellow: #b8960a;
             --text-white: #f5f5f5;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-white);
-            overflow-x: hidden;
             background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
             min-height: 100vh;
         }
-
-        /* Header */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
+            position: fixed; top: 0; width: 100%; z-index: 1000;
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            transition: all 0.3s ease;
         }
-
-        header.scrolled {
-            background: rgba(10, 10, 10, 0.98);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
-
         .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
         }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
+        .logo-container { display: flex; align-items: center; gap: 1.5rem; }
         .logo {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--bright-yellow) 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-black);
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--bright-yellow));
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; font-weight: 800; color: var(--primary-black);
         }
-
         .company-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif; font-size: 1.5rem;
+            font-weight: 700; letter-spacing: 2px;
             background: linear-gradient(90deg, var(--accent-yellow), var(--bright-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-
-        .tagline {
-            font-size: 0.9rem;
-            color: var(--text-white);
-            opacity: 0.7;
-            font-weight: 300;
-        }
-
-        /* Navigation Tabs */
+        .tagline { font-size: 0.9rem; opacity: 0.7; }
         .nav-tabs {
-            position: fixed;
-            top: 100px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 0;
+            position: fixed; top: 100px; left: 0; right: 0; z-index: 999;
+            display: flex; justify-content: center;
             background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 0;
-            z-index: 999;
             border-bottom: 1px solid rgba(255, 215, 0, 0.1);
         }
-
         .tab-button {
-            padding: 1.2rem 2.5rem;
-            background: transparent;
-            border: none;
-            border-bottom: 3px solid transparent;
-            color: var(--text-white);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0.7;
+            padding: 1.2rem 2.5rem; background: transparent;
+            border: none; border-bottom: 3px solid transparent;
+            color: var(--text-white); font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem; font-weight: 600; cursor: pointer;
+            transition: all 0.3s ease; opacity: 0.7;
         }
-
-        .tab-button:hover {
-            opacity: 1;
-            background: rgba(255, 215, 0, 0.05);
-        }
-
+        .tab-button:hover { opacity: 1; background: rgba(255, 215, 0, 0.05); }
         .tab-button.active {
-            color: var(--accent-yellow);
-            border-bottom: 3px solid var(--accent-yellow);
-            opacity: 1;
-            background: rgba(255, 215, 0, 0.1);
+            color: var(--accent-yellow); border-bottom: 3px solid var(--accent-yellow);
+            opacity: 1; background: rgba(255, 215, 0, 0.1);
         }
-
-        /* Page Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 180px 2rem 4rem;
-            min-height: 100vh;
-        }
-
-        /* Tab Content */
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Title Section */
-        .title-section {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-        }
-
+        .container { max-width: 1400px; margin: 0 auto; padding: 180px 2rem 4rem; }
+        .tab-content { display: none; animation: fadeIn 0.5s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .title-section { text-align: center; margin-bottom: 3rem; padding: 2rem 0; }
         .title-section h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--bright-yellow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif; font-size: 3.5rem;
+            font-weight: 800; letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--bright-yellow));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-transform: uppercase;
         }
-
-        .title-section p {
-            font-size: 1.2rem;
-            color: var(--text-white);
-            opacity: 0.8;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .title-section p { font-size: 1.2rem; opacity: 0.8; letter-spacing: 2px; }
+        
+        /* Video Container */
+        .video-container {
+            max-width: 900px; margin: 0 auto 3rem;
+            border-radius: 20px; overflow: hidden;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
-
-        /* Content Container */
+        .video-container iframe,
+        .video-container video {
+            width: 100%; aspect-ratio: 16/9; display: block;
+        }
+        
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; margin: 3rem 0;
+        }
+        .gallery-item {
+            border-radius: 15px; overflow: hidden;
+            aspect-ratio: 4/3; background: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease; cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-yellow);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .gallery-placeholder {
+            width: 100%; height: 100%; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(10, 10, 10, 0.8));
+        }
+        .gallery-placeholder svg { width: 60px; height: 60px; margin-bottom: 1rem; opacity: 0.4; }
+        .gallery-placeholder p { opacity: 0.6; font-size: 0.9rem; }
+        
+        /* Map */
+        .map-container {
+            width: 100%; height: 450px; border-radius: 20px; overflow: hidden;
+            margin: 3rem 0; border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        
         .content-container {
-            background: rgba(26, 26, 26, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
+            background: rgba(26, 26, 26, 0.5); backdrop-filter: blur(10px);
+            border-radius: 20px; padding: 3rem;
             border: 1px solid rgba(255, 215, 0, 0.1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
-
-        /* Company Section */
-        .company-section {
-            margin-bottom: 3rem;
-        }
-
+        .company-section { margin-bottom: 3rem; }
         .company-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-yellow);
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif; font-size: 2rem;
+            color: var(--accent-yellow); margin-bottom: 1.5rem;
         }
-
-        .company-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-white);
-            opacity: 0.9;
-            margin-bottom: 1rem;
-        }
-
-        /* Info Grid */
+        .company-section p { font-size: 1.1rem; line-height: 1.8; opacity: 0.9; margin-bottom: 1rem; }
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
-
         .info-card {
-            background: rgba(10, 10, 10, 0.5);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            background: rgba(10, 10, 10, 0.5); padding: 2rem;
+            border-radius: 15px; border: 1px solid rgba(255, 215, 0, 0.2);
             transition: all 0.3s ease;
         }
-
         .info-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-yellow);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
         }
-
         .info-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-yellow);
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif; font-size: 1.5rem;
+            color: var(--accent-yellow); margin-bottom: 1rem;
         }
-
-        .info-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text-white);
-            opacity: 0.85;
+        .info-card ul { list-style: none; }
+        .info-card li {
+            padding: 0.6rem 0 0.6rem 1.5rem; position: relative;
         }
-
-        .info-card ul {
-            list-style: none;
-            padding: 0;
+        .info-card li::before {
+            content: '▸'; position: absolute; left: 0;
+            color: var(--accent-yellow); font-weight: bold;
         }
-
-        .info-card ul li {
-            padding: 0.6rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            font-size: 1rem;
-            color: var(--text-white);
-            opacity: 0.85;
-        }
-
-        .info-card ul li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent-yellow);
-            font-weight: bold;
-        }
-
         .info-card a {
             color: var(--accent-yellow);
             text-decoration: none;
-            transition: all 0.3s ease;
         }
-
-        .info-card a:hover {
-            color: var(--bright-yellow);
-            text-decoration: underline;
-        }
-
-        /* Footer */
+        .info-card a:hover { color: var(--bright-yellow); }
+        
         footer {
             background: rgba(10, 10, 10, 0.95);
             border-top: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 2rem;
-            text-align: center;
-            margin-top: 4rem;
+            padding: 2rem; text-align: center;
         }
-
-        footer p {
-            color: var(--text-white);
-            opacity: 0.7;
-            font-size: 0.95rem;
-        }
-
-        /* Responsive */
+        footer p { opacity: 0.7; font-size: 0.95rem; }
+        
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .tagline {
-                font-size: 0.8rem;
-            }
-
-            .logo {
-                width: 50px;
-                height: 50px;
-                font-size: 1.8rem;
-            }
-
-            .company-name {
-                font-size: 1.2rem;
-            }
-
-            .title-section h1 {
-                font-size: 2rem;
-            }
-
-            .title-section p {
-                font-size: 1rem;
-            }
-
-            .nav-tabs {
-                flex-direction: column;
-                top: 130px;
-            }
-
-            .tab-button {
-                border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-                padding: 1rem;
-            }
-
-            .tab-button.active {
-                border-bottom: 1px solid var(--accent-yellow);
-                border-left: 3px solid var(--accent-yellow);
-            }
-
-            .container {
-                padding-top: 280px;
-            }
-
-            .content-container {
-                padding: 1.5rem;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .company-section h2 {
-                font-size: 1.5rem;
-            }
-
-            .company-section p {
-                font-size: 1rem;
-            }
+            .header-content { flex-direction: column; text-align: center; }
+            .title-section h1 { font-size: 2rem; }
+            .nav-tabs { flex-direction: column; top: 130px; }
+            .container { padding-top: 280px; }
+            .image-gallery { grid-template-columns: 1fr; }
+            .map-container { height: 300px; }
         }
     </style>
 </head>
 <body>
-    <header id="header">
+    <header>
         <div class="header-content">
             <div class="logo-container">
                 <div class="logo">K</div>
-                <div>
-                    <div class="company-name">KMIT CONSTRUCTION</div>
-                </div>
+                <div><div class="company-name">KMIT CONSTRUCTION</div></div>
             </div>
             <div class="tagline">Subcontractor: THANAWAT ENGINEERING PHUKET</div>
         </div>
     </header>
 
-    <!-- Navigation Tabs -->
     <nav class="nav-tabs">
         <button class="tab-button active" onclick="openTab(event, 'video-tab')">VIDEO PRESENTATION</button>
         <button class="tab-button" onclick="openTab(event, 'kmit-tab')">KMIT CONSTRUCTION</button>
@@ -409,6 +206,20 @@
             <div class="title-section">
                 <h1>JETTY METHOD</h1>
                 <p>NAKA ISLAND PHUKET THAILAND</p>
+            </div>
+
+            <div class="video-container">
+                <!-- แบบ YouTube: ลบ comment และแทนที่ YOUR_VIDEO_ID -->
+                <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+                
+                <!-- แบบไฟล์ .mp4: ลบ comment และแทนที่ชื่อไฟล์ -->
+                <!-- <video controls autoplay muted loop><source src="jetty-video.mp4" type="video/mp4"></video> -->
+                
+                <!-- Placeholder: ลบออกเมื่อเพิ่มวิดีโอ -->
+                <div class="gallery-placeholder" style="aspect-ratio: 16/9;">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <p style="font-size: 1.2rem; margin-top: 1rem;">Video Presentation</p>
+                </div>
             </div>
 
             <div class="content-container">
@@ -445,6 +256,38 @@
                 <div class="company-section">
                     <h2>About KMIT Construction</h2>
                     <p>KMIT Construction is a leading construction company specializing in comprehensive building and infrastructure projects. We deliver excellence through innovative solutions and professional execution.</p>
+                </div>
+
+                <!-- KMIT Company Images -->
+                <div class="company-section">
+                    <h2>Our Projects</h2>
+                </div>
+                <div class="image-gallery">
+                    <!-- แทนที่ด้วยรูปของ KMIT: <img src="kmit-project1.jpg" alt="KMIT Project 1"> -->
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p>KMIT Project 1</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p>KMIT Project 2</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p>KMIT Project 3</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="info-grid">
@@ -490,8 +333,39 @@
                 <div class="company-section">
                     <h2>About Thanawat Engineering Phuket</h2>
                     <p>Thanawat Engineering Phuket Limited Partnership is a marine engineering company specializing in marine works, steel structures, and coastal infrastructure. Established in 1983 in Phuket, the company has over 40 years of experience in the industry.</p>
-                    
                     <p>Currently managed by Mr. Jirawat Kuramakanok, Thanawat Engineering Phuket is trusted by government agencies, local authorities, and private clients nationwide, and remains committed to providing reliable and sustainable marine engineering solutions.</p>
+                </div>
+
+                <!-- Thanawat Company Images -->
+                <div class="company-section">
+                    <h2>Our Works</h2>
+                </div>
+                <div class="image-gallery">
+                    <!-- แทนที่ด้วยรูปของ Thanawat: <img src="thanawat-project1.jpg" alt="Thanawat Project 1"> -->
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p>Thanawat Project 1</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p>Thanawat Project 2</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <svg fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                            <p>Thanawat Project 3</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="info-grid">
@@ -524,6 +398,18 @@
                         <p><strong>Email:</strong><br><a href="mailto:thanawateng.phuket@gmail.com">thanawateng.phuket@gmail.com</a></p>
                     </div>
                 </div>
+
+                <!-- Google Maps -->
+                <div class="company-section">
+                    <h2>Our Location</h2>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.0775842936824!2d98.39049931477664!3d7.893984094297674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTMnMzguMyJOIDk4wrAyMyczMy42IkU!5e0!3m2!1sen!2sth!4v1234567890123!5m2!1sen!2sth" 
+                        allowfullscreen 
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </div>
     </main>
@@ -533,45 +419,15 @@
     </footer>
 
     <script>
-        // Tab switching function
         function openTab(evt, tabName) {
-            // Hide all tab contents
-            var tabContents = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
-            }
-
-            // Remove active class from all tab buttons
-            var tabButtons = document.getElementsByClassName("tab-button");
-            for (var i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].classList.remove("active");
-            }
-
-            // Show the selected tab and mark button as active
+            var tabs = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove("active");
+            var btns = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < btns.length; i++) btns[i].classList.remove("active");
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
-
-            // Scroll to top smoothly
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scroll for page load
-        document.addEventListener('DOMContentLoaded', function() {
-            window.scrollTo(0, 0);
-        });
     </script>
 </body>
 </html>
